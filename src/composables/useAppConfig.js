@@ -11,6 +11,13 @@ const state = reactive({
   bodyFields: [...FALLBACK_CONFIG.bodyFields],
 })
 
+/** GitHub Pages 子路径如 /exercise-tracker/；本地开发为 / */
+const APP_BASE = import.meta.env.BASE_URL || '/'
+
+function configUrl(...segments) {
+  return `${APP_BASE}${segments.join('/')}`.replace(/([^:]\/)\/+/g, '$1')
+}
+
 async function fetchJson(url) {
   const res = await fetch(url)
   if (!res.ok) throw new Error(`${url} (${res.status})`)
@@ -35,7 +42,7 @@ export async function loadAppConfig() {
   let setName = FALLBACK_CONFIG.set
 
   try {
-    const active = await fetchJson('/config/active.json')
+    const active = await fetchJson(configUrl('config', 'active.json'))
     if (active?.set && typeof active.set === 'string') {
       setName = active.set.trim()
     }
@@ -43,12 +50,11 @@ export async function loadAppConfig() {
     console.warn('[config] active.json', e)
   }
 
-  const base = `/config/${setName}`
   try {
     const [app, templatesFile, bodyFile] = await Promise.all([
-      fetchJson(`${base}/app.json`),
-      fetchJson(`${base}/templates.json`),
-      fetchJson(`${base}/body-metrics.json`),
+      fetchJson(configUrl('config', setName, 'app.json')),
+      fetchJson(configUrl('config', setName, 'templates.json')),
+      fetchJson(configUrl('config', setName, 'body-metrics.json')),
     ])
     applyConfig(setName, app, templatesFile, bodyFile)
   } catch (e) {
