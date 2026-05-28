@@ -1,0 +1,4 @@
+{
+  "set": "default",
+  "_comment": "改成其他文件夹名即可切换配置，例如 \"custom\"。对应 public/config/<文件夹名>/"
+}

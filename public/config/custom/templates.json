@@ -1,0 +1,11 @@
+{
+  "categories": [
+    { "id": "cardio", "label": "有氧" },
+    { "id": "strength", "label": "力量" }
+  ],
+  "templates": [
+    { "name": "跑步", "category": "cardio", "minutes": 30 },
+    { "name": "游泳", "category": "cardio", "minutes": 45 },
+    { "name": "力量训练", "category": "strength", "minutes": 45 }
+  ]
+}

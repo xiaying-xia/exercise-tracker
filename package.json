@@ -1,0 +1,24 @@
+{
+  "name": "exercise-tracker",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "dev:lan": "node scripts/print-mobile-url.mjs && vite --host",
+    "dev:mobile": "npm run dev:lan",
+    "build": "vite build",
+    "build:pages": "GITHUB_PAGES=true GITHUB_PAGES_BASE=/exercise-tracker/ vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "preview:lan": "vite preview --host",
+    "deploy": "npm run build && vercel --prod"
+  },
+  "dependencies": {
+    "vue": "^3.5.34"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.6",
+    "vite": "^8.0.12",
+    "vite-plugin-pwa": "^1.3.0"
+  }
+}
