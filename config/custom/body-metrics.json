@@ -1,0 +1,6 @@
+{
+  "fields": [
+    { "key": "weight", "label": "体重", "unit": "kg", "step": 0.1, "placeholder": "如 65.5" },
+    { "key": "waist", "label": "腰围", "unit": "cm", "step": 0.5, "placeholder": "如 72" }
+  ]
+}

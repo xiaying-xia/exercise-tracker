@@ -1,0 +1,1 @@
+{"name":"运动打卡","short_name":"运动打卡","description":"记录每日运动，本地保存","start_url":"/exercise-tracker/","display":"standalone","background_color":"#f0fdfa","theme_color":"#0d9488","lang":"zh-CN","scope":"/exercise-tracker/","orientation":"portrait","icons":[{"src":"favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
